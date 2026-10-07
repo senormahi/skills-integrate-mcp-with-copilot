@@ -8,9 +8,35 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
+      <div class="header-content">
+        <h1>Mergington High School</h1>
+        <div class="auth-controls">
+          <span id="teacher-name" class="hidden" aria-live="polite"></span>
+          <button id="login-button" type="button">Teacher Login</button>
+          <button id="logout-button" class="hidden" type="button">Log Out</button>
+        </div>
+      </div>
       <h2>Extracurricular Activities</h2>
     </header>
+
+    <dialog id="login-dialog" aria-labelledby="login-title">
+      <form id="login-form">
+        <h3 id="login-title">Teacher Login</h3>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input id="username" name="username" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+        <div id="login-message" class="hidden" role="alert"></div>
+        <div class="dialog-actions">
+          <button id="cancel-login" class="secondary-button" type="button">Cancel</button>
+          <button type="submit">Log In</button>
+        </div>
+      </form>
+    </dialog>
 
     <main>
       <section id="activities-container">
@@ -21,7 +47,12 @@
         </div>
       </section>
 
-      <section id="signup-container">
+      <section id="teacher-prompt">
+        <h3>Teacher sign-in required</h3>
+        <p>Activity lists and participant rosters are public. Teachers must sign in to register or remove students.</p>
+      </section>
+
+      <section id="signup-container" class="hidden">
         <h3>Sign Up for an Activity</h3>
         <form id="signup-form">
           <div class="form-group">
